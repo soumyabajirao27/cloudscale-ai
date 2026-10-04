@@ -28,11 +28,11 @@
       }
     },
     {
-      "label": "Frontend: Vite NEW UI (npm run dev)",
+      "label": "Frontend: Vite UI (npm run dev)",
       "type": "shell",
       "command": "npm run dev",
       "options": {
-        "cwd": "${workspaceFolder}/frontend_new/pbl sem 5"
+        "cwd": "${workspaceFolder}/frontend"
       },
       "isBackground": true,
       "presentation": {
@@ -54,10 +54,10 @@
       }
     },
     {
-      "label": "Start Both Servers (Backend + NEW Frontend)",
+      "label": "Start Both Servers (Backend + Frontend)",
       "dependsOn": [
         "Backend: FastAPI (uvicorn)",
-        "Frontend: Vite NEW UI (npm run dev)"
+        "Frontend: Vite UI (npm run dev)"
       ],
       "dependsOrder": "parallel",
       "group": {

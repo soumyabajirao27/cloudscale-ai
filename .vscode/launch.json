@@ -25,19 +25,19 @@
       "jinja": true
     },
     {
-      "name": "Frontend: Vite NEW UI (npm run dev)",
+      "name": "Frontend: Vite UI (npm run dev)",
       "type": "node-terminal",
       "request": "launch",
       "command": "npm run dev",
-      "cwd": "${workspaceFolder}/frontend_new/pbl sem 5"
+      "cwd": "${workspaceFolder}/frontend"
     }
   ],
   "compounds": [
     {
-      "name": "Full Stack: FastAPI + NEW Vite UI (F5)",
+      "name": "Full Stack: FastAPI + Vite UI (F5)",
       "configurations": [
         "Backend: FastAPI (uvicorn)",
-        "Frontend: Vite NEW UI (npm run dev)"
+        "Frontend: Vite UI (npm run dev)"
       ]
     }
   ]
