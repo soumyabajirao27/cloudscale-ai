@@ -1,0 +1,3 @@
+# Directory for Alembic migration scripts.
+# Generated revisions are stored here (e.g. `alembic revision --autogenerate`).
+

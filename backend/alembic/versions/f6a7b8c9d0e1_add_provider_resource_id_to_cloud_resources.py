@@ -1,0 +1,37 @@
+"""add_provider_resource_id_to_cloud_resources
+
+Revision ID: f6a7b8c9d0e1
+Revises: e5f6a7b8c9d0
+Create Date: 2026-08-11 20:46:00.000000
+
+Adds provider_resource_id column to cloud_resources for Phase 10 provider sync.
+"""
+
+from typing import Sequence, Union
+
+from alembic import op
+import sqlalchemy as sa
+
+
+# revision identifiers, used by Alembic.
+revision: str = "f6a7b8c9d0e1"
+down_revision: Union[str, None] = "e5f6a7b8c9d0"
+branch_labels: Union[str, Sequence[str], None] = None
+depends_on: Union[str, Sequence[str], None] = None
+
+
+def upgrade() -> None:
+    op.add_column(
+        "cloud_resources",
+        sa.Column("provider_resource_id", sa.String(length=100), nullable=True),
+    )
+    op.create_index(
+        "ix_cloud_resources_provider_resource_id",
+        "cloud_resources",
+        ["provider_resource_id"],
+    )
+
+
+def downgrade() -> None:
+    op.drop_index("ix_cloud_resources_provider_resource_id", table_name="cloud_resources")
+    op.drop_column("cloud_resources", "provider_resource_id")

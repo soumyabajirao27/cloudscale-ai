@@ -1,0 +1,32 @@
+# Alembic Migrations
+
+This directory contains the Alembic migration environment for the
+CloudScale AI backend.
+
+## How to use
+
+All commands must be run from the `backend/` directory with the virtual
+environment activated.
+
+### Generate a migration (autogenerate from models)
+
+    alembic revision --autogenerate -m "Initial migration"
+
+### Apply all pending migrations
+
+    alembic upgrade head
+
+### Other useful commands
+
+    alembic downgrade -1                  # Revert the last migration
+    alembic history                       # Show migration history
+    alembic current                       # Show current revision
+    alembic check                         # Check for pending model changes
+
+## Configuration notes
+
+- The database URL is loaded automatically from `app.core.config.settings`
+  (sourced from `backend/.env`) — it is **not** stored in `alembic.ini`.
+- `target_metadata = Base.metadata` is wired to `app.db.base.Base`, so
+  `--autogenerate` will reflect any ORM models imported by the app.
+
